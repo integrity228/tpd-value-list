@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TPD — Официальный Value List</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Orbitron:wght@700;900&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <div class="hub-tag">Trading Hub Live</div>
+            <h1 class="main-logo">TPD<span>VALUES</span></h1>
+            <p class="main-subtitle">Актуальная и просторная база цен юнитов • Автор: @xXram2di3Xx</p>
+        </div>
+    </header>
+
+    <main class="content-area">
+        <div class="container" id="listContainer">
+            <!-- Сетка контента генерируется автоматически через JS ниже -->
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2026 TPD Values. Синхронизировано со спецификацией @xXram2di3Xx. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        // База данных юнитов 
+        const data = [
+            { r: 'ADMIN', n: 'VOLTBSTARS', t: 'AOE', v: 'INF' },
+            { r: 'ASTRAL', n: 'upg clock', t: 'buff + AOE', v: 327589 },
+            { r: 'ASTRAL', n: 'g-man', t: 'AOE + self buff', v: 259999 },
+            { r: 'ASTRAL', n: 'upg drill', t: 'AOE', v: 245999 },
+            { r: 'EXOTICAL', n: 'tri titan', t: 'AOE', v: 145000 },
+            { r: 'EXOTICAL', n: 'future clock', t: 'buffer + single', v: 100001 },
+            { r: 'EXOTICAL', n: 'cheff clock', t: 'buffer + single', v: 100000 },
+            { r: 'EXOTICAL', n: 'siren titan', t: 'AOE', v: 64999 },
+            { r: 'EXOTICAL', n: 'injured uttv', t: 'single', v: 50000 },
+            { r: 'EXOTICAL', n: 'injured uttv orb', t: 'single', v: 50000 },
+            { r: 'EXOTICAL', n: 'uttv', t: 'AOE', v: 37500, note: 'upgraded tv titan signs' },
+            { r: 'EXOTICAL', n: 'astro poly', t: 'single', v: 20750 },
+            { r: 'EXOTICAL', n: 'prototype duo', t: 'single', v: 17500 },
+            { r: 'EXOTICAL', n: 'titan clock', t: 'single', v: 4000 },
+            { r: 'EXOTICAL', n: 'cheff drill', t: 'spawner', v: 2550 },
+            { r: 'EXOTICAL', n: 'drill titan', t: 'single', v: 1999 },
+            { r: 'MYTHIC', n: 'speaker hyper', t: 'AOE', v: 57500 },
+            { r: 'MYTHIC', n: 'astro camera', t: 'AOE', v: 55000 },
+            { r: 'MYTHIC', n: 'drill woman', t: 'single', v: 18000 },
+            { r: 'MYTHIC', n: 'tv daddy', t: 'AOE', v: 10075 },
+            { r: 'MYTHIC', n: 'uts', t: 'AOE', v: 2450 },
+            { r: 'MYTHIC', n: 'utc', t: 'AOE', v: 2350 },
+            { r: 'MYTHIC', n: 'cinema', t: 'AOE', v: 2250 },
+            { r: 'MYTHIC', n: 'laser camera', t: 'single', v: 2250 },
+            { r: 'MYTHIC', n: 'knife uts', t: 'single', v: 1795 },
+            { r: 'MYTHIC', n: 'ucw', t: 'single', v: 1205 },
+            { r: 'MYTHIC', n: 'ksw', t: 'single', v: 1205 },
+            { r: 'MYTHIC', n: 'drill scientist', t: 'farm', v: 650 },
+            { r: 'LEGENDARY', n: 'sand mech', t: 'AOE', v: 7500 },
+            { r: 'LEGENDARY', n: 'tv woman', t: 'AOE', v: 900 },
+            { r: 'LEGENDARY', n: 'clock woman', t: 'single', v: 875 },
+            { r: 'LEGENDARY', n: 'glitch plunger', t: 'single', v: 625 },
+            { r: 'LEGENDARY', n: 'dark speaker', t: 'single', v: 550 },
+            { r: 'LEGENDARY', n: 'titan camera', t: 'single', v: 450 },
+            { r: 'LEGENDARY', n: 'titan speaker', t: 'AOE', v: 450 },
+            { r: 'LEGENDARY', n: 'titan tv', t: 'AOE', v: 450 },
+            { r: 'LEGENDARY', n: 'upg poly', t: 'full AOE', v: 275 },
+            { r: 'LEGENDARY', n: 'injured uts', t: 'single', v: 135 },
+            { r: 'LEGENDARY', n: 'camera woman', t: 'single', v: 125 },
+            { r: 'LEGENDARY', n: 'speaker woman', t: 'farm', v: 125 },
+            { r: 'LEGENDARY', n: 'injured utc', t: 'AOE', v: 125 },
+            { r: 'LEGENDARY', n: 'injured utc saw', t: 'single', v: 115 },
+            { r: 'LEGENDARY', n: 'large clock', t: 'single', v: 65 },
+            { r: 'EPIC', n: 'summer tv', t: 'AOE', v: 50 },
+            { r: 'EPIC', n: 'large drill', t: 'AOE', v: 45 },
+            { r: 'EPIC', n: 'large speaker', t: 'single', v: 35 },
+            { r: 'EPIC', n: 'large tv', t: 'AOE', v: 27 },
+            { r: 'EPIC', n: 'large camera', t: 'single', v: 25 },
+            { r: 'RARE', n: 'alarm clock', t: 'single', v: 9 },
+            { r: 'UNCOMMON', n: 'tv man', t: 'single (ig)', v: 7 },
+            { r: 'COMMON', n: 'drill man', t: 'single', v: 5 },
+            { r: 'COMMON', n: 'speaker man', t: 'single', v: 2 },
+            { r: 'COMMON', n: 'camera man', t: 'single', v: 1 }
+        ];
+
+        const order = ['ADMIN', 'ASTRAL', 'EXOTICAL', 'MYTHIC', 'LEGENDARY', 'EPIC', 'RARE', 'UNCOMMON', 'COMMON'];
+        const view = document.getElementById('listContainer');
+        let html = '';
+
+        order.forEach(tier => {
+            const list = data.filter(u => u.r === tier);
+            if (!list.length) return;
+            
+            html += `<div class="rarity-group-box">`;
+            html += `<h2 class="rarity-headline text-${tier.toLowerCase()}">${tier} UNITS</h2>`;
+            html += `<div class="cards-layout">`;
+            
+            list.forEach(u => {
+                const isInf = u.v === 'INF';
+                const price = isInf ? 'INF' : `💎 ${u.v.toLocaleString('en-US')}`;
+                const noteParagraph = u.note ? `<p class="unit-note">${u.note}</p>` : '';
+                
+                html += `
+                    <div class="card card-${tier.toLowerCase()}">
+                        <span class="badge badge-${tier.toLowerCase()}">${tier}</span>
+                        <div class="avatar-box border-${tier.toLowerCase()}">⚜️</div>
+                        <h3 class="unit-name">${u.n}</h3>
+                        ${noteParagraph}
+                        <div class="details-box">
+                            <div class="row"><span class="lbl">Атака</span><span class="val text-white">${u.t}</span></div>
+                            <div class="row"><span class="lbl">Цена</span><span class="val price ${isInf ? 'inf' : ''}">${price}</span></div>
+                        </div>
+                    </div>`;
+            });
+            html += `</div></div>`;
+        });
+        
+        // Добавление блока глобальных наценок в самый конец списка
+        html += `
+            <section class="notes-section">
+                <h3 class="section-title">Система наценок (Сигнатуры трейдеров)</h3>
+                <div class="notes-grid">
+                    <div class="note-card"><span class="note-user">voltbstars</span><span class="note-percent">+15% к цене</span><p>Применяется к базовой стоимости любого юнита</p></div>
+                    <div class="note-card"><span class="note-user">TOP ?</span><span class="note-percent">+10% к цене</span><p>Применяется к базовой стоимости любого юнита</p></div>
+                    <div class="note-card"><span class="note-user">Saimon2013nov</span><span class="note-percent">+5% к цене</span><p>Применяется к базовой стоимости любого юнита</p></div>
+                    <div class="note-card"><span class="note-user">DetRol36</span><span class="note-percent">+5% к цене</span><p>Применяется к базовой стоимости любого юнита</p></div>
+                </div>
+            </section>
+        `;
+        
+        view.innerHTML = html;
+    </script>
+</body>
+</html>

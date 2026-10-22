@@ -1,0 +1,267 @@
+/* ==========================================================================
+   1. НАСТРОЙКИ СИСТЕМЫ И ПЕРЕМЕННЫЕ
+   ========================================================================== */
+:root {
+    --bg-main: #04060f;
+    --bg-header: #080d1a;
+    --bg-glass: rgba(15, 23, 42, 0.45);
+    --border-glow: rgba(255, 255, 255, 0.04);
+    --text-main: #f8fafc;
+    --text-muted: #475569;
+    --text-secondary: #94a3b8;
+    --clr-price: #10b981;
+
+    /* Редкости (Неоновые цвета) */
+    --c-admin: #ff0055;
+    --c-astral: #f59e0b;
+    --c-exotical: #6366f1;
+    --c-mythic: #ef4444;
+    --c-legendary: #d97706;
+    --c-epic: #a855f7;
+    --c-rare: #3b82f6;
+    --c-uncommon: #22c55e;
+    --c-common: #64748b;
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    background-image: radial-gradient(circle at 50% -20%, #1e1b4b 0%, var(--bg-main) 70%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container { 
+    width: 100%; 
+    max-width: 1280px; 
+    margin: 0 auto; 
+    padding: 0 24px; 
+}
+
+/* ==========================================================================
+   2. ШАПКА САЙТА (HEADER)
+   ========================================================================== */
+.main-header {
+    background-color: rgba(8, 13, 26, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 60px 0;
+    text-align: center;
+    border-bottom: 1px solid var(--border-glow);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.hub-tag {
+    display: inline-block;
+    background: linear-gradient(90deg, rgba(99,102,241,0.2), rgba(168,85,247,0.2));
+    color: #a5b4fc;
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+}
+
+.main-logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.main-logo span { 
+    color: var(--c-exotical); 
+    text-shadow: 0 0 25px rgba(99, 102, 241, 0.5); 
+}
+
+.main-subtitle { 
+    color: var(--text-secondary); 
+    font-size: 1rem; 
+    margin-top: 8px; 
+}
+
+/* ==========================================================================
+   3. КОНТЕНТНАЯ ЗОНА И СЕТКА КАРТОЧЕК (ПРОСТРАНСТВО ИСПРАВЛЕНО ТУТ)
+   ========================================================================== */
+.content-area { 
+    padding: 90px 0 140px 0; /* Огромный отступ сверху и снизу контента */
+    flex-grow: 1;
+}
+
+.rarity-group-box { 
+    margin-bottom: 110px; /* Большое расстояние между блоками редкостей */
+}
+
+.rarity-headline {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    margin-bottom: 45px; /* Отодвинули заголовки от карточек, чтобы они не слипались */
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.cards-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 36px; /* Заметно увеличили расстояние между карточками в сетке */
+}
+
+/* ==========================================================================
+   4. ИГРОВАЯ КАРТОЧКА (CARD UX)
+   ========================================================================== */
+.card {
+    background: var(--bg-glass);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--border-glow);
+    border-radius: 20px;
+    padding: 35px 26px; /* Внутри карточки стало свободнее */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card:hover {
+    transform: translateY(-6px) scale(1.01);
+    background-color: rgba(20, 30, 54, 0.6);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 3px 10px;
+    border-radius: 5px;
+    letter-spacing: 0.5px;
+}
+
+.avatar-box {
+    width: 80px;
+    height: 80px;
+    border-radius: 16px;
+    background-color: rgba(4, 6, 15, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 25px 0 20px 0;
+    font-size: 1.8rem;
+    border: 2px solid rgba(255, 255, 255, 0.03);
+}
+
+.unit-name { 
+    font-size: 1.25rem; 
+    font-weight: 800; 
+    color: #fff; 
+    text-align: center; 
+}
+
+.unit-note { 
+    font-size: 0.75rem; 
+    color: #818cf8; 
+    margin-top: 4px;
+    margin-bottom: 12px; 
+    font-weight: 600; 
+    text-align: center; 
+}
+
+.details-box {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    padding: 6px 16px;
+    margin-top: auto; /* Прижимает блок характеристик вниз карты */
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0; /* Строки внутри параметров теперь не зажаты */
+    font-size: 0.85rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.row:last-child { 
+    border-bottom: none; 
+}
+
+.lbl { color: var(--text-secondary); }
+.val { font-weight: 700; }
+.price { color: var(--clr-price); font-weight: 800; }
+
+/* ==========================================================================
+   5. ЦВЕТОВЫЕ СХЕМЫ СВЕЧЕНИЯ ТИРОВ (NEON MATRIX)
+   ========================================================================== */
+.text-admin { color: var(--c-admin); } .badge-admin { background: var(--c-admin); color: #fff; } .card-admin:hover { box-shadow: 0 0 25px rgba(255, 0, 85, 0.25); } .card-admin .avatar-box { border-color: var(--c-admin); }
+.text-astral { color: var(--c-astral); } .badge-astral { background: var(--c-astral); color: #000; } .card-astral:hover { box-shadow: 0 0 25px rgba(245, 158, 11, 0.25); } .card-astral .avatar-box { border-color: var(--c-astral); }
+.text-exotical { color: var(--c-exotical); } .badge-exotical { background: var(--c-exotical); color: #fff; } .card-exotical:hover { box-shadow: 0 0 25px rgba(99, 102, 241, 0.25); } .card-exotical .avatar-box { border-color: var(--c-exotical); }
+.text-mythic { color: var(--c-mythic); } .badge-mythic { background: var(--c-mythic); color: #fff; } .card-mythic:hover { box-shadow: 0 0 25px rgba(239, 68, 68, 0.25); } .card-mythic .avatar-box { border-color: var(--c-mythic); }
+.text-legendary { color: #f59e0b; } .badge-legendary { background: #b45309; color: #fff; } .card-legendary:hover { box-shadow: 0 0 25px rgba(217, 119, 6, 0.25); } .card-legendary .avatar-box { border-color: #b45309; }
+.text-epic { color: var(--c-epic); } .badge-epic { background: var(--c-epic); color: #fff; } .card-epic:hover { box-shadow: 0 0 25px rgba(168, 85, 247, 0.25); } .card-epic .avatar-box { border-color: var(--c-epic); }
+.text-rare { color: var(--c-rare); } .badge-rare { background: var(--c-rare); color: #fff; } .card-rare:hover { border-color: var(--c-rare); }
+.text-uncommon { color: var(--c-uncommon); } .badge-uncommon { background: var(--c-uncommon); color: #fff; } .card-uncommon:hover { border-color: var(--c-uncommon); }
+.text-common { color: var(--c-common); } .badge-common { background: var(--c-common); color: #fff; } .card-common:hover { border-color: var(--c-common); }
+.inf { color: var(--c-admin) !important; text-shadow: 0 0 8px rgba(255,0,85,0.4); }
+
+/* ==========================================================================
+   6. ИНФОРМАЦИОННЫЙ БЛОК СИГНАТУР СНИЗУ (NOTES)
+   ========================================================================== */
+.notes-section { 
+    margin-top: 100px; 
+    padding-top: 50px; 
+    border-top: 1px solid var(--border-color); 
+}
+
+.section-title { 
+    font-family: 'Orbitron', sans-serif; 
+    font-size: 1.3rem; 
+    margin-bottom: 30px; 
+    color: #6366f1; 
+    text-transform: uppercase;
+}
+
+.notes-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+    gap: 24px; 
+}
+
+.note-card { 
+    background: #0b1120; 
+    padding: 24px; 
+    border-radius: 14px; 
+    border: 1px solid var(--border-color); 
+    text-align: center; 
+}
+
+.note-user { font-weight: 700; color: #fff; display: block; }
+.note-percent { display: inline-block; background-color: rgba(16, 185, 129, 0.15); color: #4ade80; padding: 2px 8px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; margin: 4px 0 10px 0; }
+.note-card p { font-size: 0.8rem; color: var(--text-muted); }
+
+/* ==========================================================================
+   7. ФУТЕР
+   ========================================================================== */
+.main-footer { 
+    text-align: center; 
+    padding: 40px 0; 
+    color: var(--text-muted); 
+    font-size: 0.85rem; 
+    border-top: 1px solid var(--border-color); 
+    margin-top: auto; 
+}
